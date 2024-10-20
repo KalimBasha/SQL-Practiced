@@ -1,0 +1,102 @@
+SQL> SELECT LENGTH(LOC),LOC FROM
+  2  (SELECT LENGTH(LOC),LOC FROM DEPT ORDER BY LENGTH(LOC) DESC)
+  3  WHERE ROWNUM=1;
+
+LENGTH(LOC) LOC                                                                                                                                                                                         
+----------- -------------                                                                                                                                                                               
+          8 NEW YORK                                                                                                                                                                                    
+
+SQL> SELECT LOC,LENGTH(LOC) FROM
+  2  (SELECT LOC,LENGTH(LOC) FROM DEPT ORDER BY LENGTH(LOC) ASC)
+  3  WHERE ROWNUM=1;
+
+LOC           LENGTH(LOC)                                                                                                                                                                               
+------------- -----------                                                                                                                                                                               
+DALLAS                  6                                                                                                                                                                               
+
+SQL> SELECT * FROM
+  2  (SELECT * FROM EMP ORDER BY EMPNO DESC)
+  3  WHERE ROWNUM=1;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      TESTING         8899 23-MAY-87       1100       1700         20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+14 rows selected.
+
+SQL> SELECT * FROM
+  2  (SELECT * FROM EMP ORDER BY EMPNO DESC)
+  3  WHERE ROWNUM<=5 ORDER BY EMPNO ASC;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      TESTING         8899 23-MAY-87       1100       1700         20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+SQL> SELECT * FROM EMP WHERE ROWNUM<=
+  2  (SELECT COUNT(*)/2 FROM EMP);
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+
+7 rows selected.
+
+SQL> SELECT DNAME,LOC FROM DEPT WHERE SAL IN
+  2  (SELECT SAL FROM EMP WHERE SA
+  3  
+SQL> 
+SQL> SELECT DNAME,LOC FROM DEPT WHERE DEPTNO IN
+  2  (SELECT DEPTNO FROM EMP WHERE SAL IN
+  3  (SELECT SAL FROM
+  4  (SELECT SAL FROM
+  5  (SELECT SAL FROM EMP WHERE ORDER BY SAL ASC)
+  6  WHERE ROWNUM<=5 ORDER BY SAL DESC)
+  7  WHERE ROWNUM=1));
+(SELECT SAL FROM EMP WHERE ORDER BY SAL ASC)
+                           *
+ERROR at line 5:
+ORA-00936: missing expression 
+
+
+SQL> SELECT DNAME,LOC FROM DEPT WHERE DEPTNO IN
+  2  (SELECT DEPTNO FROM EMP WHERE SAL IN
+  3  (SELECT SAL FROM
+  4  (SELECT SAL FROM
+  5  (SELECT SAL FROM EMP  ORDER BY SAL ASC)
+  6   WHERE ROWNUM<=5 ORDER BY SAL DESC)
+  7   WHERE ROWNUM=1));
+
+DNAME          LOC                                                                                                                                                                                      
+-------------- -------------                                                                                                                                                                            
+SALES          CHICAGO                                                                                                                                                                                  
+
+SQL> SPOOL OFF;

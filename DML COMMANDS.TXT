@@ -1,0 +1,106 @@
+SQL>  SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                                                                                       
+------------------------------ ------- ----------                                                                                                                                                       
+DEPT                           TABLE                                                                                                                                                                    
+EMP                            TABLE                                                                                                                                                                    
+BONUS                          TABLE                                                                                                                                                                    
+SALGRADE                       TABLE                                                                                                                                                                    
+
+SQL> DESC BONUS;
+ Name                                                                                                              Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ ENAME                                                                                                                      VARCHAR2(10)
+ JOB                                                                                                                        VARCHAR2(9)
+ SAL                                                                                                                        NUMBER
+ COMM                                                                                                                       NUMBER
+
+SQL> SELECT * FROM BONUS;
+
+ENAME      JOB              SAL       COMM                                                                                                                                                              
+---------- --------- ---------- ----------                                                                                                                                                              
+kalim      Developer         20          5                                                                                                                                                              
+
+SQL> INSERT INTO BONUS VALUES('ARUN','ACTOR',300,50);
+
+1 row created.
+
+SQL> INSERT INTO BONUS VALUES('VIJAY','JAVA',25,3),
+  2  INSERT INTO BONUS VALUES('MANO','BACKEND',24,4);
+INSERT INTO BONUS VALUES('VIJAY','JAVA',25,3),
+                                             *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL>  INSERT INTO BONUS VALUES('VIJAY','JAVA',25,3);
+
+1 row created.
+
+SQL> INSERT INTO BONUS VALUES('MANO','BACKEND',24,4);
+
+1 row created.
+
+SQL> SELECT * FROM BONUS;
+
+ENAME      JOB              SAL       COMM                                                                                                                                                              
+---------- --------- ---------- ----------                                                                                                                                                              
+ARUN       ACTOR            300         50                                                                                                                                                              
+VIJAY      JAVA              25          3                                                                                                                                                              
+MANO       BACKEND           24          4                                                                                                                                                              
+kalim      Developer         20          5                                                                                                                                                              
+
+SQL> UPDATE BONUS SET SAL=30 WHERE ENAME='ARUN';
+
+1 row updated.
+
+SQL> UPDATE EMP JOB='TESTING',MGR=8899,COMM=1700 WHERE ENAME='ADAMS';
+UPDATE EMP JOB='TESTING',MGR=8899,COMM=1700 WHERE ENAME='ADAMS'
+              *
+ERROR at line 1:
+ORA-00971: missing SET keyword 
+
+
+SQL>  UPDATE EMP SET JOB='TESTING',MGR=8899,COMM=1700 WHERE ENAME='ADAMS';
+
+1 row updated.
+
+SQL> SELECT * FROM BONUS;
+
+ENAME      JOB              SAL       COMM                                                                                                                                                              
+---------- --------- ---------- ----------                                                                                                                                                              
+ARUN       ACTOR             30         50                                                                                                                                                              
+VIJAY      JAVA              25          3                                                                                                                                                              
+MANO       BACKEND           24          4                                                                                                                                                              
+kalim      Developer         20          5                                                                                                                                                              
+
+SQL> DELETE FROM BONUS WHERE ENAME='KALIM';
+
+0 rows deleted.
+
+SQL> SELECT * FROM BONUS;
+
+ENAME      JOB              SAL       COMM                                                                                                                                                              
+---------- --------- ---------- ----------                                                                                                                                                              
+ARUN       ACTOR             30         50                                                                                                                                                              
+VIJAY      JAVA              25          3                                                                                                                                                              
+MANO       BACKEND           24          4                                                                                                                                                              
+kalim      Developer         20          5                                                                                                                                                              
+
+SQL>  DELETE FROM BONUS WHERE ENAME='ARUN';
+
+1 row deleted.
+
+SQL>  DELETE FROM BONUS WHERE JOB='BACKEND';
+
+1 row deleted.
+
+SQL> TRUNCATE TABLE BONUS;
+
+Table truncated.
+
+SQL>  SELECT * FROM BONUS;
+
+no rows selected
+
+SQL> SPOOL OFF;

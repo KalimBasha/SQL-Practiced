@@ -1,0 +1,289 @@
+SQL> SET PAGES 200 LINES 200
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                                                                                       
+------------------------------ ------- ----------                                                                                                                                                       
+DEPT                           TABLE                                                                                                                                                                    
+EMP                            TABLE                                                                                                                                                                    
+BONUS                          TABLE                                                                                                                                                                    
+SALGRADE                       TABLE                                                                                                                                                                    
+
+SQL> CREATE TABLE COURSE(CID NUMBER(3) PRIMARY KEY,
+  2  CNAME VARCHAR(50) NOT NULL,
+  3  CFEES NUMBER(10),
+  4  CDUR VARCHAR,
+  5  CTUTOR VARCHAR(20));
+CDUR VARCHAR,
+            *
+ERROR at line 4:
+ORA-00906: missing left parenthesis 
+
+
+SQL> CREATE TABLE COURSE(CID NUMBER(3) PRIMARY KEY,
+  2  CNAME VARCHAR(50) NOT NULL,
+  3  CFEES NUMBER(10),
+  4   CDUR VARCHAR(10),
+  5  CTUTOR VARCHAR(20));
+
+Table created.
+
+SQL> CREATE TABLE STUDENT(SID NUMBER(2) PRIMARY KEY,
+  2  SNAME VARCHAR(50) NOT NULL,
+  3  SAGE NUMBER(2) CHECK(SAGE>18),
+  4  MOB_NO NUMBER(10),
+  5  GENDER VARCHAR(5),
+  6  CID REFERENCES COURSE(CID));
+
+Table created.
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                                                                                       
+------------------------------ ------- ----------                                                                                                                                                       
+DEPT                           TABLE                                                                                                                                                                    
+EMP                            TABLE                                                                                                                                                                    
+BONUS                          TABLE                                                                                                                                                                    
+SALGRADE                       TABLE                                                                                                                                                                    
+COURSE                         TABLE                                                                                                                                                                    
+STUDENT                        TABLE                                                                                                                                                                    
+
+6 rows selected.
+
+SQL> DESC STUDENT;
+ Name                                                                                                              Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ SID                                                                                                               NOT NULL NUMBER(2)
+ SNAME                                                                                                             NOT NULL VARCHAR2(50)
+ SAGE                                                                                                                       NUMBER(2)
+ MOB_NO                                                                                                                     NUMBER(10)
+ GENDER                                                                                                                     VARCHAR2(5)
+ CID                                                                                                                        NUMBER(3)
+
+SQL> ALTER TABLE STUDENT
+  2  ADD EMAIL VARCHAR(30);
+
+Table altered.
+
+SQL> DESC STUDENT;
+ Name                                                                                                              Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ SID                                                                                                               NOT NULL NUMBER(2)
+ SNAME                                                                                                             NOT NULL VARCHAR2(50)
+ SAGE                                                                                                                       NUMBER(2)
+ MOB_NO                                                                                                                     NUMBER(10)
+ GENDER                                                                                                                     VARCHAR2(5)
+ CID                                                                                                                        NUMBER(3)
+ EMAIL                                                                                                                      VARCHAR2(30)
+
+SQL> ALTER TABLE STUDENT
+  2  RENAME COLUMN SAGE TO AGE;
+
+Table altered.
+
+SQL> ALTER TABLE COURSE
+  2  MODIFY EMAIL NUMBER(3);
+MODIFY EMAIL NUMBER(3)
+       *
+ERROR at line 2:
+ORA-00904: "EMAIL": invalid identifier 
+
+
+SQL> ALTER TABLE STUDENT
+  2  MODIFY EMAIL NUMBER(3);
+
+Table altered.
+
+SQL>  DESC STUDENT;
+ Name                                                                                                              Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ SID                                                                                                               NOT NULL NUMBER(2)
+ SNAME                                                                                                             NOT NULL VARCHAR2(50)
+ AGE                                                                                                                        NUMBER(2)
+ MOB_NO                                                                                                                     NUMBER(10)
+ GENDER                                                                                                                     VARCHAR2(5)
+ CID                                                                                                                        NUMBER(3)
+ EMAIL                                                                                                                      NUMBER(3)
+
+SQL> ALTER TABLE STUDENT
+  2  DROP COLUMN EMAIL;
+
+Table altered.
+
+SQL>  DESC STUDENT;
+ Name                                                                                                              Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ SID                                                                                                               NOT NULL NUMBER(2)
+ SNAME                                                                                                             NOT NULL VARCHAR2(50)
+ AGE                                                                                                                        NUMBER(2)
+ MOB_NO                                                                                                                     NUMBER(10)
+ GENDER                                                                                                                     VARCHAR2(5)
+ CID                                                                                                                        NUMBER(3)
+
+SQL> SELECT COUNT(*) FROM STUDENT;
+
+  COUNT(*)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         0                                                                                                                                                                                              
+
+SQL> ALTER TABLE STUDENT
+  2  ADD CONSTRAINT F_K FOREIGNKEY(CID);
+ADD CONSTRAINT F_K FOREIGNKEY(CID)
+                             *
+ERROR at line 2:
+ORA-00902: invalid datatype 
+
+
+SQL> alter table student add cname varchar(50) not null;
+
+Table altered.
+
+SQL> alter table student add constraint cn foreignkey(cname);
+alter table student add constraint cn foreignkey(cname)
+                                                *
+ERROR at line 1:
+ORA-00902: invalid datatype 
+
+
+SQL>  alter table student add constraint cn foreignkey references course(cname);
+ alter table student add constraint cn foreignkey references course(cname)
+                                                                    *
+ERROR at line 1:
+ORA-02270: no matching unique or primary key for this column-list 
+
+
+SQL>  DESC STUDENT;
+ Name                                                                                                              Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ SID                                                                                                               NOT NULL NUMBER(2)
+ SNAME                                                                                                             NOT NULL VARCHAR2(50)
+ AGE                                                                                                                        NUMBER(2)
+ MOB_NO                                                                                                                     NUMBER(10)
+ GENDER                                                                                                                     VARCHAR2(5)
+ CID                                                                                                                        NUMBER(3)
+ CNAME                                                                                                             NOT NULL VARCHAR2(50)
+
+SQL> DESC course;
+ Name                                                                                                              Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ CID                                                                                                               NOT NULL NUMBER(3)
+ CNAME                                                                                                             NOT NULL VARCHAR2(50)
+ CFEES                                                                                                                      NUMBER(10)
+ CDUR                                                                                                                       VARCHAR2(10)
+ CTUTOR                                                                                                                     VARCHAR2(20)
+
+SQL> ALTER TABLE STUDENT
+  2  ADD CONSTRAINT FK FOREIGN KEY(CNAME);
+ADD CONSTRAINT FK FOREIGN KEY(CNAME)
+                                   *
+ERROR at line 2:
+ORA-00905: missing keyword 
+
+
+SQL> DROP TABLE STUDENT;
+
+Table dropped.
+
+SQL> DROP TABLE COURSE;
+
+Table dropped.
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                                                                                       
+------------------------------ ------- ----------                                                                                                                                                       
+DEPT                           TABLE                                                                                                                                                                    
+EMP                            TABLE                                                                                                                                                                    
+BONUS                          TABLE                                                                                                                                                                    
+SALGRADE                       TABLE                                                                                                                                                                    
+BIN$EAWWD17RTz6VX5/Ar7HPZw==$0 TABLE                                                                                                                                                                    
+BIN$kiG9UmOMSjq2A1pJ3VyWLQ==$0 TABLE                                                                                                                                                                    
+
+6 rows selected.
+
+SQL> FLASHBACK TABLE COURSE TO BEFORE DROP;
+
+Flashback complete.
+
+SQL> SHOW RECYCLEBIN;
+ORIGINAL NAME    RECYCLEBIN NAME                OBJECT TYPE  DROP TIME                                                                                                                                  
+---------------- ------------------------------ ------------ -------------------                                                                                                                        
+STUDENT          BIN$kiG9UmOMSjq2A1pJ3VyWLQ==$0 TABLE        2024-04-19:19:01:31                                                                                                                        
+SQL> PURGE STUDENT;
+PURGE STUDENT
+      *
+ERROR at line 1:
+ORA-38302: invalid PURGE option 
+
+
+SQL> PURGE TABLE STUDENT;
+
+Table purged.
+
+SQL> DROP TABLE COURSE ;
+
+Table dropped.
+
+SQL> PURGE RECYCLEBIN;
+
+Recyclebin purged.
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                                                                                       
+------------------------------ ------- ----------                                                                                                                                                       
+DEPT                           TABLE                                                                                                                                                                    
+EMP                            TABLE                                                                                                                                                                    
+BONUS                          TABLE                                                                                                                                                                    
+SALGRADE                       TABLE                                                                                                                                                                    
+
+SQL> FLASHBACK TABLE COURSE TO BEFORE DROP;
+FLASHBACK TABLE COURSE TO BEFORE DROP
+*
+ERROR at line 1:
+ORA-38305: object not in RECYCLE BIN 
+
+
+SQL> CREATE TABLE STU(SID NUMBER(2),
+  2  SNAME VARCHAR(50) NOT NULL,
+  3  SAGE NUMBER(2) CHECK(SAGE>18));
+
+Table created.
+
+SQL> RENAME STU INTO STUDENT;
+RENAME STU INTO STUDENT
+           *
+ERROR at line 1:
+ORA-00946: missing TO keyword 
+
+
+SQL>  RENAME STU TO STUDENT;
+
+Table renamed.
+
+SQL> INSERT INTO STUDENT VALUES(20,'KALIM',23);
+
+1 row created.
+
+SQL> SELECT * FROM STUDENT;
+
+       SID SNAME                                                    SAGE                                                                                                                                
+---------- -------------------------------------------------- ----------                                                                                                                                
+        20 KALIM                                                      23                                                                                                                                
+
+SQL> TRUNCATE TABLE STUDENT;
+
+Table truncated.
+
+SQL> SELECT * FROM STUDENT;
+
+no rows selected
+
+SQL> DROP TABLE STUDENT;
+
+Table dropped.
+
+SQL> PURGE RECYCLEBIN;
+
+Recyclebin purged.
+
+SQL> SPOOL OFF;

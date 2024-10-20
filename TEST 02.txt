@@ -1,0 +1,407 @@
+SQL> select * from emp where substr(ename,1)='A' OR substr(ename,1)='E' OR substr(ename,1)='I' OR substr(ename,1)='O' OR substr(ename,1)='U';
+
+no rows selected
+
+SQL> SET PAGES 200 LINES 200
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      TESTING         8899 23-MAY-87       1100       1700         20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+14 rows selected.
+
+SQL>  select * from emp where substr(ename,1)='A' OR substr(ename,1)='E' OR substr(ename,1)='I' OR
+  2   SUbstr(ename,1)='O' OR substr(ename,1)='U';
+
+no rows selected
+
+SQL> SELECT ENAME FROM EMP WHERE SUBSTR(ENAME,1)='A' OR SUBSTR(ENAME,1)='E' OR SUBSTR(ENAME,1)='I'
+  2  OR SUBSTR(ENAME,1)='O' OR SUBSTR(ENAME,1)='U';
+
+no rows selected
+
+SQL> SELECT SUBSTR(ENAME,-3) FROM EMP WHERE LENGTH(JOB)=5 AND SUBSTR(SAL*12,-1)=0;
+
+SUB                                                                                                                                                                                                     
+---                                                                                                                                                                                                     
+ITH                                                                                                                                                                                                     
+MES                                                                                                                                                                                                     
+LER                                                                                                                                                                                                     
+
+SQL> SELECT LOWER(SUBSTR(ENAME,1)) FROM EMP WHERE ENAME=ENAME/2;
+SELECT LOWER(SUBSTR(ENAME,1)) FROM EMP WHERE ENAME=ENAME/2
+                                             *
+ERROR at line 1:
+ORA-01722: invalid number 
+
+
+SQL> SELECT LOWER(SUBSTR(ENAME,1)) FROM EMP WHERE LENGTH(ENAME)=ENAME/2;
+SELECT LOWER(SUBSTR(ENAME,1)) FROM EMP WHERE LENGTH(ENAME)=ENAME/2
+                                                           *
+ERROR at line 1:
+ORA-01722: invalid number 
+
+
+SQL> SELECT * FROM EMP WHERE SUBSTR(ENAME,1)='%A%';
+
+no rows selected
+
+SQL>  SELECT * FROM EMP WHERE SUBSTR(ENAME)='%A%';
+ SELECT * FROM EMP WHERE SUBSTR(ENAME)='%A%'
+                         *
+ERROR at line 1:
+ORA-00938: not enough arguments for function 
+
+
+SQL> SELECT ROUND(MONTHS_BETWEEN(CURRENT_DATE,HIREDATE)/12) FROM EMP;
+
+ROUND(MONTHS_BETWEEN(CURRENT_DATE,HIREDATE)/12)                                                                                                                                                         
+-----------------------------------------------                                                                                                                                                         
+                                             43                                                                                                                                                         
+                                             43                                                                                                                                                         
+                                             43                                                                                                                                                         
+                                             43                                                                                                                                                         
+                                             43                                                                                                                                                         
+                                             43                                                                                                                                                         
+                                             43                                                                                                                                                         
+                                             37                                                                                                                                                         
+                                             42                                                                                                                                                         
+                                             43                                                                                                                                                         
+                                             37                                                                                                                                                         
+                                             42                                                                                                                                                         
+                                             42                                                                                                                                                         
+                                             42                                                                                                                                                         
+
+14 rows selected.
+
+SQL> SELECT RPAD(SUBSTR('DEVELOPER',1,7),11,'MENT') FROM DUAL;
+
+RPAD(SUBSTR                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+DEVELOPMENT                                                                                                                                                                                             
+
+SQL> SELECT COUNT(*) FROM EMP WHERE TO_CHAR(HIREDATE,'MON')='FEB' AND TO_CHAR(HIREDATE,'DAY')='THURSDAY';
+
+  COUNT(*)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         0                                                                                                                                                                                              
+
+SQL> SELECT CONCAT(LOWER(SUBSTR(ENAME,1,3)),UPPER(SUBSTR(ENAME,4))) FROM EMP;
+
+CONCAT(LOW                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+smiTH                                                                                                                                                                                                   
+allEN                                                                                                                                                                                                   
+warD                                                                                                                                                                                                    
+jonES                                                                                                                                                                                                   
+marTIN                                                                                                                                                                                                  
+blaKE                                                                                                                                                                                                   
+claRK                                                                                                                                                                                                   
+scoTT                                                                                                                                                                                                   
+kinG                                                                                                                                                                                                    
+turNER                                                                                                                                                                                                  
+adaMS                                                                                                                                                                                                   
+jamES                                                                                                                                                                                                   
+forD                                                                                                                                                                                                    
+milLER                                                                                                                                                                                                  
+
+14 rows selected.
+
+SQL> SELECT CONCAT(ENAME,SAL) AS EMPLOYEE_DETAILS FROM EMP;
+
+EMPLOYEE_DETAILS                                                                                                                                                                                        
+--------------------------------------------------                                                                                                                                                      
+SMITH800                                                                                                                                                                                                
+ALLEN1600                                                                                                                                                                                               
+WARD1250                                                                                                                                                                                                
+JONES2975                                                                                                                                                                                               
+MARTIN1250                                                                                                                                                                                              
+BLAKE2850                                                                                                                                                                                               
+CLARK2450                                                                                                                                                                                               
+SCOTT3000                                                                                                                                                                                               
+KING5000                                                                                                                                                                                                
+TURNER1500                                                                                                                                                                                              
+ADAMS1100                                                                                                                                                                                               
+JAMES950                                                                                                                                                                                                
+FORD3000                                                                                                                                                                                                
+MILLER1300                                                                                                                                                                                              
+
+14 rows selected.
+
+SQL> SELECT SAL*12,COMM/2 FROM EMP WHERE SUBSTR(JOB,1,3)='MAN';
+
+    SAL*12     COMM/2                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+     35700                                                                                                                                                                                              
+     34200                                                                                                                                                                                              
+     29400                                                                                                                                                                                              
+
+SQL> SELECT CURRENT_TIMESTAMP FROM DUAL;
+
+CURRENT_TIMESTAMP                                                                                                                                                                                       
+---------------------------------------------------------------------------                                                                                                                             
+21-APR-24 10.00.48.635000 AM +05:30                                                                                                                                                                     
+
+SQL> SELECT LAST_DAY('01-FEB-25') FROM DUAL;
+
+LAST_DAY(                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+28-FEB-25                                                                                                                                                                                               
+
+SQL> SELECT LAST_DAY(TO_DATE('01-FEB-2025','DD-MM-YYYY')) FROM DUAL;
+
+LAST_DAY(                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+28-FEB-25                                                                                                                                                                                               
+
+SQL> SELECT LENGTH('S' IN 'JSPIDERS') FROM DUAL;
+SELECT LENGTH('S' IN 'JSPIDERS') FROM DUAL
+                  *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> SELECT LENGTH('S') FROM 'JSPIDERS';
+SELECT LENGTH('S') FROM 'JSPIDERS'
+                        *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> SELECT LENGTH('S' FROM 'JSPIDERS') FROM DUAL;
+SELECT LENGTH('S' FROM 'JSPIDERS') FROM DUAL
+                  *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> SELECT ENAME FROM EMP WHERE SUBSTR(ENAME,-1)='N' AND INSTR(JOB,'A',1)=2;
+
+ENAME                                                                                                                                                                                                   
+----------                                                                                                                                                                                              
+ALLEN                                                                                                                                                                                                   
+MARTIN                                                                                                                                                                                                  
+
+SQL>  select * from emp where substr(ename,1,1)='A' OR substr(ename,1,1)='E' OR substr(ename,1,1)='I' OR substr(ename,1,1)='O' OR substr(ename,1,1)='U';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7876 ADAMS      TESTING         8899 23-MAY-87       1100       1700         20                                                                                                                   
+
+SQL> select lower(ename) from emp where ename=count(ename/2);
+select lower(ename) from emp where ename=count(ename/2)
+                                         *
+ERROR at line 1:
+ORA-00934: group function is not allowed here 
+
+
+SQL> select lower(count(ename/2)) from emp;
+select lower(count(ename/2)) from emp
+                   *
+ERROR at line 1:
+ORA-01722: invalid number 
+
+
+SQL> select * from emp where instr(ename,'A',1);
+select * from emp where instr(ename,'A',1)
+                                         *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+SQL> select * from emp where instr(ename,'A',1)=1;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7876 ADAMS      TESTING         8899 23-MAY-87       1100       1700         20                                                                                                                   
+
+SQL> select * from emp where instr(ename,'A',1)>=1;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7876 ADAMS      TESTING         8899 23-MAY-87       1100       1700         20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+
+7 rows selected.
+
+SQL> select select count((ename)/2) from emp;
+select select count((ename)/2) from emp
+       *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> select length(ename) from emp where length(ename)=ename/2;
+select length(ename) from emp where length(ename)=ename/2
+                                                  *
+ERROR at line 1:
+ORA-01722: invalid number 
+
+
+SQL> select length(ename) from emp ;
+
+LENGTH(ENAME)                                                                                                                                                                                           
+-------------                                                                                                                                                                                           
+            5                                                                                                                                                                                           
+            5                                                                                                                                                                                           
+            4                                                                                                                                                                                           
+            5                                                                                                                                                                                           
+            6                                                                                                                                                                                           
+            5                                                                                                                                                                                           
+            5                                                                                                                                                                                           
+            5                                                                                                                                                                                           
+            4                                                                                                                                                                                           
+            6                                                                                                                                                                                           
+            5                                                                                                                                                                                           
+            5                                                                                                                                                                                           
+            4                                                                                                                                                                                           
+            6                                                                                                                                                                                           
+
+14 rows selected.
+
+SQL> select lower(ename) from emp where ename=length(ename)/2;
+select lower(ename) from emp where ename=length(ename)/2
+                                   *
+ERROR at line 1:
+ORA-01722: invalid number 
+
+
+SQL> select length(ename)/2 from emp;
+
+LENGTH(ENAME)/2                                                                                                                                                                                         
+---------------                                                                                                                                                                                         
+            2.5                                                                                                                                                                                         
+            2.5                                                                                                                                                                                         
+              2                                                                                                                                                                                         
+            2.5                                                                                                                                                                                         
+              3                                                                                                                                                                                         
+            2.5                                                                                                                                                                                         
+            2.5                                                                                                                                                                                         
+            2.5                                                                                                                                                                                         
+              2                                                                                                                                                                                         
+              3                                                                                                                                                                                         
+            2.5                                                                                                                                                                                         
+            2.5                                                                                                                                                                                         
+              2                                                                                                                                                                                         
+              3                                                                                                                                                                                         
+
+14 rows selected.
+
+SQL> select lower(ename) from emp where  length(ename)/2 ;
+select lower(ename) from emp where  length(ename)/2 
+                                                   *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+SQL> select lower(ename) from emp where length(ename)/2=1;
+
+no rows selected
+
+SQL> select lower(ename) from emp where length(ename)/2=round(length(ename)/2);
+
+LOWER(ENAM                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+ward                                                                                                                                                                                                    
+martin                                                                                                                                                                                                  
+king                                                                                                                                                                                                    
+turner                                                                                                                                                                                                  
+ford                                                                                                                                                                                                    
+miller                                                                                                                                                                                                  
+
+6 rows selected.
+
+SQL>  select lower(ename) from emp where length(ename)/2=floor(length(ename)/2);
+
+LOWER(ENAM                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+ward                                                                                                                                                                                                    
+martin                                                                                                                                                                                                  
+king                                                                                                                                                                                                    
+turner                                                                                                                                                                                                  
+ford                                                                                                                                                                                                    
+miller                                                                                                                                                                                                  
+
+6 rows selected.
+
+SQL> select lower(substr(length(ename)/2,1)) from emp;
+
+LOWER(SUBSTR(LENGTH(ENAME)/2,1))                                                                                                                                                                        
+----------------------------------------                                                                                                                                                                
+2.5                                                                                                                                                                                                     
+2.5                                                                                                                                                                                                     
+2                                                                                                                                                                                                       
+2.5                                                                                                                                                                                                     
+3                                                                                                                                                                                                       
+2.5                                                                                                                                                                                                     
+2.5                                                                                                                                                                                                     
+2.5                                                                                                                                                                                                     
+2                                                                                                                                                                                                       
+3                                                                                                                                                                                                       
+2.5                                                                                                                                                                                                     
+2.5                                                                                                                                                                                                     
+2                                                                                                                                                                                                       
+3                                                                                                                                                                                                       
+
+14 rows selected.
+
+SQL> select length('s') from dual where substr('jspiders',1)='s';
+
+no rows selected
+
+SQL> select count('s') from dual where substr('jspiders',1)='s';
+
+COUNT('S')                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         0                                                                                                                                                                                              
+
+SQL> select length(s) from dual where substr('jspiders',1)='s';
+select length(s) from dual where substr('jspiders',1)='s'
+              *
+ERROR at line 1:
+ORA-00904: "S": invalid identifier 
+
+
+SQL>  select length("s") from dual where substr('jspiders',1)='s';
+ select length("s") from dual where substr('jspiders',1)='s'
+               *
+ERROR at line 1:
+ORA-00904: "s": invalid identifier 
+
+
+SQL> select length(replace('jspiders','s',' ') ) from dual
+  2  where replace('jspiders','s',' ') ;
+where replace('jspiders','s',' ') 
+                                 *
+ERROR at line 2:
+ORA-00920: invalid relational operator 
+
+
+SQL>  select length(replace('jspiders','s',' ') ) from dual;
+
+LENGTH(REPLACE('JSPIDERS','S',''))                                                                                                                                                                      
+----------------------------------                                                                                                                                                                      
+                                 8                                                                                                                                                                      
+
+SQL> spool off;

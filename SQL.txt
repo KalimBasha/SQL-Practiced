@@ -1,0 +1,90 @@
+SQL NOTES
+
+DQL COMMANDS:
+SELECT CLAUSE:
+It is a dql query used to select how many columns we want
+select * from table name;
+WHERE CLAUSE:
+select * from table name where condition;
+ALIASING:
+select ename as empname,sal as salary from emp;
+
+DDL COMMANDS:
+CREATE:
+create table student(columnname datatype(size) constraints,....);
+ALTER:
+ALTER-ADD:
+alter table table name
+where colmnname datatype(size) constraints;
+ALTER-RENAME:
+alter table tablename
+rename column old clm to new clm;
+ALTER-DROP:
+alter table tablename
+drop column cname;
+ALTER-MODIFY:
+alter table tablename
+modify cname datatype(size) ;
+DROP:
+drop table tname;
+RENAME:
+rename old tname to newtname;
+TRUNCATE:
+truncate table tname;
+
+DML COMMANDS:
+INSERT:
+insert into tname values(v1,v2,....);
+UPDATE:
+update tname set cname=v1,cname=v2,...where conndition;
+DELETE:
+delete from tname where condition;
+
+TCL COMMANDS:
+COMMIT:
+commit;
+SAVEPOINT:
+savepoint savepointname;
+ROLLBACK:
+rollback;
+rollback to savepointname;
+
+OPERATORS:
+ARITHMETIC :
++,-,*,/
+RELATIONAL:
+=,<,>,<=,>=,!= OR <>
+LOGICAL:
+and,or,not
+STRING:
+concatenation(||)
+SPECIAL :
+like-->%,_
+in,as,is null,between-->and keyword
+
+FUNCTIONS:
+SINGLEROW:
+NUMBER:
+mod(),power(),sqrt(),abs(),floor(),ceil(),round()
+CHAR:
+length(),upper(),lower(),initcap(),substr(),instr(),replace(),translate(),reverse(),
+concat(),lpad(),rpad(),trim(),ascii(),nvl(),nvl2()
+CONVERSION:
+to_date(),to_char()
+DATE:
+current_date,sysdate,sessiontimezone,add_months,months_between,last_day,next_day,current_timestamp
+MULTIROW:
+max(),min(),sum(),avg(),count()
+
+DATATYPES:
+NUMERIC:
+number(size),int
+STRING:
+char(size),varchar(size),varchar2()
+DATE:
+'DD-MM-YYYY'
+
+
+
+
+ 

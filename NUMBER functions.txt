@@ -1,0 +1,130 @@
+SQL> select mod(987,14) from dual;
+
+MOD(987,14)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+          7                                                                                                                                                                                             
+
+SQL> select mod(45,4) from dual;
+
+ MOD(45,4)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         1                                                                                                                                                                                              
+
+SQL> select sal,mod(sal,2)=0 from dual;
+select sal,mod(sal,2)=0 from dual
+                     *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL>  select sal from emp where mod(sal,2)=0;
+
+       SAL                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+       800                                                                                                                                                                                              
+      1600                                                                                                                                                                                              
+      1250                                                                                                                                                                                              
+      1250                                                                                                                                                                                              
+      2850                                                                                                                                                                                              
+      2450                                                                                                                                                                                              
+      3000                                                                                                                                                                                              
+      5000                                                                                                                                                                                              
+      1500                                                                                                                                                                                              
+      1100                                                                                                                                                                                              
+       950                                                                                                                                                                                              
+      3000                                                                                                                                                                                              
+      1300                                                                                                                                                                                              
+
+13 rows selected.
+
+SQL> select abs(-11267) from dual;
+
+ABS(-11267)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+      11267                                                                                                                                                                                             
+
+SQL> select abs(235) from dual;
+
+  ABS(235)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+       235                                                                                                                                                                                              
+
+SQL> select power(2,3) from dual;
+
+POWER(2,3)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         8                                                                                                                                                                                              
+
+SQL> select power(43,0) from dual;
+
+POWER(43,0)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+          1                                                                                                                                                                                             
+
+SQL> select sqrt(64) from dual;
+
+  SQRT(64)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         8                                                                                                                                                                                              
+
+SQL> select sqrt(26675) from dual;
+
+SQRT(26675)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+  163.32483                                                                                                                                                                                             
+
+SQL> select floor(12.8) from dual;
+
+FLOOR(12.8)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+         12                                                                                                                                                                                             
+
+SQL> select floor(12.1) from dual;
+
+FLOOR(12.1)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+         12                                                                                                                                                                                             
+
+SQL>  select floor(12.4) from dual;
+
+FLOOR(12.4)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+         12                                                                                                                                                                                             
+
+SQL> select ceil(345.8) from dual;
+
+CEIL(345.8)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+        346                                                                                                                                                                                             
+
+SQL>  select ceil(34.2) from dual;
+
+CEIL(34.2)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+        35                                                                                                                                                                                              
+
+SQL>  select ceil(34.4) from dual;
+
+CEIL(34.4)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+        35                                                                                                                                                                                              
+
+SQL> select round(367.4) from dual;
+
+ROUND(367.4)                                                                                                                                                                                            
+------------                                                                                                                                                                                            
+         367                                                                                                                                                                                            
+
+SQL>  select round(367.5) from dual;
+
+ROUND(367.5)                                                                                                                                                                                            
+------------                                                                                                                                                                                            
+         368                                                                                                                                                                                            
+
+SQL>  select round(367.9) from dual;
+
+ROUND(367.9)                                                                                                                                                                                            
+------------                                                                                                                                                                                            
+         368                                                                                                                                                                                            
+
+SQL> spool off;

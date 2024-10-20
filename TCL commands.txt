@@ -1,0 +1,92 @@
+SQL> select 8 from tab;
+
+         8                                                                      
+----------                                                                      
+         8                                                                      
+         8                                                                      
+         8                                                                      
+         8                                                                      
+         8                                                                      
+         8                                                                      
+
+6 rows selected.
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+DEPT                           TABLE                                            
+EMP                            TABLE                                            
+BONUS                          TABLE                                            
+SALGRADE                       TABLE                                            
+COURSE                         TABLE                                            
+STU                            TABLE                                            
+
+6 rows selected.
+
+SQL> desc bonus;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ SAL                                                NUMBER
+ COMM                                               NUMBER
+
+SQL> insert into bonus values("kalim","developer",20,05);
+insert into bonus values("kalim","developer",20,05)
+                                 *
+ERROR at line 1:
+ORA-00984: column not allowed here 
+
+
+SQL> insert into bonus values('kalim','Developer',20,05);
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> savepoint A;
+
+Savepoint created.
+
+SQL> insert into bonus values('Arun','Backend',30,02);
+
+1 row created.
+
+SQL>  insert into bonus values('Vijay','loosu',30,03);
+
+1 row created.
+
+SQL> savepoint B;
+
+Savepoint created.
+
+SQL> insert into bonus values('subash','yes',40,05);
+
+1 row created.
+
+SQL> rollback to B;
+
+Rollback complete.
+
+SQL> select * from bonus;
+
+ENAME      JOB              SAL       COMM                                      
+---------- --------- ---------- ----------                                      
+kalim      Developer         20          5                                      
+Arun       Backend           30          2                                      
+Vijay      loosu             30          3                                      
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> select * from bonus;
+
+ENAME      JOB              SAL       COMM                                      
+---------- --------- ---------- ----------                                      
+kalim      Developer         20          5                                      
+
+SQL> spool off;

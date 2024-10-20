@@ -1,0 +1,254 @@
+SQL> select length('kalim baasha') from dual;
+
+LENGTH('KALIMBAASHA')                                                                                                                                                                                   
+---------------------                                                                                                                                                                                   
+                   12                                                                                                                                                                                   
+
+SQL> select length('engineering') from dual;
+
+LENGTH('ENGINEERING')                                                                                                                                                                                   
+---------------------                                                                                                                                                                                   
+                   11                                                                                                                                                                                   
+
+SQL> select upper('engineering') from dual;
+
+UPPER('ENGI                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+ENGINEERING                                                                                                                                                                                             
+
+SQL> select upper('HII THERE') FROM DUAL;
+
+UPPER('HI                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+HII THERE                                                                                                                                                                                               
+
+SQL> SELECT LOWER('HII THERE') FROM DUAL;
+
+LOWER('HI                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+hii there                                                                                                                                                                                               
+
+SQL>  SELECT LOWER('engineering') from dual;
+
+LOWER('ENGI                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+engineering                                                                                                                                                                                             
+
+SQL> SELECT INITCAP('KALIM BASHA') FROM DUAL;
+
+INITCAP('KA                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+Kalim Basha                                                                                                                                                                                             
+
+SQL> SELECT INITCAP('PARK COLLEGE OF ENGINEERING AND TECHNOLOGY') FROM DUAL;
+
+INITCAP('PARKCOLLEGEOFENGINEERINGANDTECHNO                                                                                                                                                              
+------------------------------------------                                                                                                                                                              
+Park College Of Engineering And Technology                                                                                                                                                              
+
+SQL> SELECT SUBSTR('TECHNOLOGY',1,6) FROM DUAL;
+
+SUBSTR                                                                                                                                                                                                  
+------                                                                                                                                                                                                  
+TECHNO                                                                                                                                                                                                  
+
+SQL>  SELECT SUBSTR('PARKCOLLEGE',5) FROM DUAL;
+
+SUBSTR(                                                                                                                                                                                                 
+-------                                                                                                                                                                                                 
+COLLEGE                                                                                                                                                                                                 
+
+SQL> SELECT REPLACE('PARK','P','M')FROM DUAL;
+
+REPL                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+MARK                                                                                                                                                                                                    
+
+SQL>  SELECT REPLACE('ENGINEERING','E','A') FROM DUAL;
+
+REPLACE('EN                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+ANGINAARING                                                                                                                                                                                             
+
+SQL> SELECT REPLACE('ENGINEERING','ING') FROM DUAL;
+
+REPLACE(                                                                                                                                                                                                
+--------                                                                                                                                                                                                
+ENGINEER                                                                                                                                                                                                
+
+SQL> SELECT REVERSE('KALIM') FROM DUAL;
+
+REVER                                                                                                                                                                                                   
+-----                                                                                                                                                                                                   
+MILAK                                                                                                                                                                                                   
+
+SQL> SELECT REVERSE('ARUN') FROM DUAL;
+
+REVE                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+NURA                                                                                                                                                                                                    
+
+SQL> SELECT INSTR('ENGINEERING','E',1,3) FROM DUAL;
+
+INSTR('ENGINEERING','E',1,3)                                                                                                                                                                            
+----------------------------                                                                                                                                                                            
+                           7                                                                                                                                                                            
+
+SQL> SELECT INSTR('ENGINEERING','E',3,3) FROM DUAL;
+
+INSTR('ENGINEERING','E',3,3)                                                                                                                                                                            
+----------------------------                                                                                                                                                                            
+                           0                                                                                                                                                                            
+
+SQL> SELECT INSTR('ENGINEERING','E',3,2) FROM DUAL;
+
+INSTR('ENGINEERING','E',3,2)                                                                                                                                                                            
+----------------------------                                                                                                                                                                            
+                           7                                                                                                                                                                            
+
+SQL> SELECT INSTR('ENGINEERING','E') FROM DUAL;
+
+INSTR('ENGINEERING','E')                                                                                                                                                                                
+------------------------                                                                                                                                                                                
+                       1                                                                                                                                                                                
+
+SQL> SELECT CONCAT('KALIM','BASHA') FROM DUAL;
+
+CONCAT('KA                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+KALIMBASHA                                                                                                                                                                                              
+
+SQL> SELECT CONCAT(ENAME,SAL) FROM EMP;
+
+CONCAT(ENAME,SAL)                                                                                                                                                                                       
+--------------------------------------------------                                                                                                                                                      
+SMITH800                                                                                                                                                                                                
+ALLEN1600                                                                                                                                                                                               
+WARD1250                                                                                                                                                                                                
+JONES2975                                                                                                                                                                                               
+MARTIN1250                                                                                                                                                                                              
+BLAKE2850                                                                                                                                                                                               
+CLARK2450                                                                                                                                                                                               
+SCOTT3000                                                                                                                                                                                               
+KING5000                                                                                                                                                                                                
+TURNER1500                                                                                                                                                                                              
+ADAMS1100                                                                                                                                                                                               
+JAMES950                                                                                                                                                                                                
+FORD3000                                                                                                                                                                                                
+MILLER1300                                                                                                                                                                                              
+
+14 rows selected.
+
+SQL> SELECT * FROM EMP WHERE JOB NOT='SALESMAN';
+SELECT * FROM EMP WHERE JOB NOT='SALESMAN'
+                               *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+SQL> SELECT * FROM EMP WHERE COMM NOT IS NULL;
+SELECT * FROM EMP WHERE COMM NOT IS NULL
+                                 *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+SQL> SELECT ASCII(*) FROM DUAL;
+SELECT ASCII(*) FROM DUAL
+             *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL>  SELECT ASCII('*') FROM DUAL;
+
+ASCII('*')                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+        42                                                                                                                                                                                              
+
+SQL> SELECT TRIM('           KALIM') FROM DUAL;
+
+TRIM(                                                                                                                                                                                                   
+-----                                                                                                                                                                                                   
+KALIM                                                                                                                                                                                                   
+
+SQL> SELECT LPAD('KALIM',7,'HI') FROM DUAL;
+
+LPAD('K                                                                                                                                                                                                 
+-------                                                                                                                                                                                                 
+HIKALIM                                                                                                                                                                                                 
+
+SQL> SELECT LPAD('KALIM',8,'HI') FROM DUAL;
+
+LPAD('KA                                                                                                                                                                                                
+--------                                                                                                                                                                                                
+HIHKALIM                                                                                                                                                                                                
+
+SQL> SELECT RPAD('HI',7,'KALIM')FROM DUAL;
+
+RPAD('H                                                                                                                                                                                                 
+-------                                                                                                                                                                                                 
+HIKALIM                                                                                                                                                                                                 
+
+SQL> SELECT RPAD('HI',25,'KALIM')FROM DUAL;
+
+RPAD('HI',25,'KALIM')                                                                                                                                                                                   
+-------------------------                                                                                                                                                                               
+HIKALIMKALIMKALIMKALIMKAL                                                                                                                                                                               
+
+SQL> SELECT TRANSLATE('ENGINEERING','EN','VA') FROM DUAL;
+
+TRANSLATE('                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+VAGIAVVRIAG                                                                                                                                                                                             
+
+SQL> SELECT NVL(COMM,120) FROM DUAL;
+SELECT NVL(COMM,120) FROM DUAL
+           *
+ERROR at line 1:
+ORA-00904: "COMM": invalid identifier 
+
+
+SQL> SELECT NVL(COMM,120) FROM EMP;
+
+NVL(COMM,120)                                                                                                                                                                                           
+-------------                                                                                                                                                                                           
+          120                                                                                                                                                                                           
+          300                                                                                                                                                                                           
+          500                                                                                                                                                                                           
+          120                                                                                                                                                                                           
+         1400                                                                                                                                                                                           
+          120                                                                                                                                                                                           
+          120                                                                                                                                                                                           
+          120                                                                                                                                                                                           
+          120                                                                                                                                                                                           
+            0                                                                                                                                                                                           
+         1700                                                                                                                                                                                           
+          120                                                                                                                                                                                           
+          120                                                                                                                                                                                           
+          120                                                                                                                                                                                           
+
+14 rows selected.
+
+SQL> SELECT NVL2(COMM,360,120) FROM EMP;
+
+NVL2(COMM,360,120)                                                                                                                                                                                      
+------------------                                                                                                                                                                                      
+               120                                                                                                                                                                                      
+               360                                                                                                                                                                                      
+               360                                                                                                                                                                                      
+               120                                                                                                                                                                                      
+               360                                                                                                                                                                                      
+               120                                                                                                                                                                                      
+               120                                                                                                                                                                                      
+               120                                                                                                                                                                                      
+               120                                                                                                                                                                                      
+               360                                                                                                                                                                                      
+               360                                                                                                                                                                                      
+               120                                                                                                                                                                                      
+               120                                                                                                                                                                                      
+               120                                                                                                                                                                                      
+
+14 rows selected.
+
+SQL> SPOOL OFF;

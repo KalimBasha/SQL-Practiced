@@ -1,0 +1,60 @@
+SQL> SELECT DISTINCT JOB FROM EMP;
+
+JOB                                                                                                                                                                                                     
+---------                                                                                                                                                                                               
+CLERK                                                                                                                                                                                                   
+SALESMAN                                                                                                                                                                                                
+PRESIDENT                                                                                                                                                                                               
+MANAGER                                                                                                                                                                                                 
+ANALYST                                                                                                                                                                                                 
+
+SQL> SELECT * FROM EMP
+  2  WHERE ENAME='SMITH';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+
+SQL> select * from emp where ename='smith';
+
+no rows selected
+
+SQL> select * from emp where ename='SMITH';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+
+SQL> SELECT ENAME,SAL FROM EMP WHERE JOB='SALESMAN';
+
+ENAME             SAL                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+ALLEN            1600                                                                                                                                                                                   
+WARD             1250                                                                                                                                                                                   
+MARTIN           1250                                                                                                                                                                                   
+TURNER           1500                                                                                                                                                                                   
+
+SQL> SELECT DNAME FROM DEPT WHERE LOC='NEWYORK';
+
+no rows selected
+
+SQL>  SELECT DNAME FROM DEPT WHERE LOC='NEW YORK';
+
+DNAME                                                                                                                                                                                                   
+--------------                                                                                                                                                                                          
+ACCOUNTING                                                                                                                                                                                              
+
+SQL> SELECT ENAME FROM EMP WHERE SAL=800;
+
+ENAME                                                                                                                                                                                                   
+----------                                                                                                                                                                                              
+SMITH                                                                                                                                                                                                   
+
+SQL> SELECT ENAME,SAL FROM EMP WHERE SAL=3000;
+
+ENAME             SAL                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+SCOTT            3000                                                                                                                                                                                   
+FORD             3000                                                                                                                                                                                   
+
+SQL> SPOOL OFF;

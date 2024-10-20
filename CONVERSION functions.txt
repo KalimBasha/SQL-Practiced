@@ -1,0 +1,61 @@
+SQL> SELECT TO_DATE('19-SEP-2036','DD-MM-YYYY') FROM DUAL;
+
+TO_DATE('                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+19-SEP-36                                                                                                                                                                                               
+
+SQL> SELECT TO_DATE('2003-09-02','YYYY-DD-MON') FROM DUAL;
+SELECT TO_DATE('2003-09-02','YYYY-DD-MON') FROM DUAL
+               *
+ERROR at line 1:
+ORA-01843: not a valid month 
+
+
+SQL> SELECT TO_DATE('2003-09-02','YYYY-DD-MM') FROM DUAL;
+
+TO_DATE('                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+09-FEB-03                                                                                                                                                                                               
+
+SQL> SELECT TO_CHAR('19-APR-23','YYYY-DD-MM') FROM DUAL;
+SELECT TO_CHAR('19-APR-23','YYYY-DD-MM') FROM DUAL
+               *
+ERROR at line 1:
+ORA-01722: invalid number 
+
+
+SQL> SELECT TO_CHAR(SYSDATE,'YYYY-DD-MM') FROM DUAL;
+
+TO_CHAR(SY                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+2024-19-04                                                                                                                                                                                              
+
+SQL> SELECT TO_CHAR(DATE '09-02-2003','DAY') FROM DUAL;
+SELECT TO_CHAR(DATE '09-02-2003','DAY') FROM DUAL
+                    *
+ERROR at line 1:
+ORA-01847: day of month must be between 1 and last day of month 
+
+
+SQL>  SELECT TO_CHAR(DATE '2003-02-09','DAY') FROM DUAL;
+
+TO_CHAR(D                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+SUNDAY                                                                                                                                                                                                  
+
+SQL> SELECT * FROM EMP WHERE TO_CHAR(HIREDATE,'YYYY')=1986;
+
+no rows selected
+
+SQL>  SELECT * FROM EMP WHERE TO_CHAR(HIREDATE,'MON')='FEB';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+
+SQL>  SELECT * FROM EMP WHERE TO_CHAR(HIREDATE,'DAY')='TUESDAY';
+
+no rows selected
+
+SQL> SPOOL OFF;

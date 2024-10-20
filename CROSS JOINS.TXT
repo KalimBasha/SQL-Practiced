@@ -1,0 +1,273 @@
+SQL> SELECT EMP.ENAME,DEPT.DNAME
+  2  FROM EMP CROSS JOIN DEPT;
+
+ENAME      DNAME                                                                                                                                                                                        
+---------- --------------                                                                                                                                                                               
+SMITH      ACCOUNTING                                                                                                                                                                                   
+ALLEN      ACCOUNTING                                                                                                                                                                                   
+WARD       ACCOUNTING                                                                                                                                                                                   
+JONES      ACCOUNTING                                                                                                                                                                                   
+MARTIN     ACCOUNTING                                                                                                                                                                                   
+BLAKE      ACCOUNTING                                                                                                                                                                                   
+CLARK      ACCOUNTING                                                                                                                                                                                   
+SCOTT      ACCOUNTING                                                                                                                                                                                   
+KING       ACCOUNTING                                                                                                                                                                                   
+TURNER     ACCOUNTING                                                                                                                                                                                   
+ADAMS      ACCOUNTING                                                                                                                                                                                   
+JAMES      ACCOUNTING                                                                                                                                                                                   
+FORD       ACCOUNTING                                                                                                                                                                                   
+MILLER     ACCOUNTING                                                                                                                                                                                   
+SMITH      RESEARCH                                                                                                                                                                                     
+ALLEN      RESEARCH                                                                                                                                                                                     
+WARD       RESEARCH                                                                                                                                                                                     
+JONES      RESEARCH                                                                                                                                                                                     
+MARTIN     RESEARCH                                                                                                                                                                                     
+BLAKE      RESEARCH                                                                                                                                                                                     
+CLARK      RESEARCH                                                                                                                                                                                     
+SCOTT      RESEARCH                                                                                                                                                                                     
+KING       RESEARCH                                                                                                                                                                                     
+TURNER     RESEARCH                                                                                                                                                                                     
+ADAMS      RESEARCH                                                                                                                                                                                     
+JAMES      RESEARCH                                                                                                                                                                                     
+FORD       RESEARCH                                                                                                                                                                                     
+MILLER     RESEARCH                                                                                                                                                                                     
+SMITH      SALES                                                                                                                                                                                        
+ALLEN      SALES                                                                                                                                                                                        
+WARD       SALES                                                                                                                                                                                        
+JONES      SALES                                                                                                                                                                                        
+MARTIN     SALES                                                                                                                                                                                        
+BLAKE      SALES                                                                                                                                                                                        
+CLARK      SALES                                                                                                                                                                                        
+SCOTT      SALES                                                                                                                                                                                        
+KING       SALES                                                                                                                                                                                        
+TURNER     SALES                                                                                                                                                                                        
+ADAMS      SALES                                                                                                                                                                                        
+JAMES      SALES                                                                                                                                                                                        
+FORD       SALES                                                                                                                                                                                        
+MILLER     SALES                                                                                                                                                                                        
+SMITH      OPERATIONS                                                                                                                                                                                   
+ALLEN      OPERATIONS                                                                                                                                                                                   
+WARD       OPERATIONS                                                                                                                                                                                   
+JONES      OPERATIONS                                                                                                                                                                                   
+MARTIN     OPERATIONS                                                                                                                                                                                   
+BLAKE      OPERATIONS                                                                                                                                                                                   
+CLARK      OPERATIONS                                                                                                                                                                                   
+SCOTT      OPERATIONS                                                                                                                                                                                   
+KING       OPERATIONS                                                                                                                                                                                   
+TURNER     OPERATIONS                                                                                                                                                                                   
+ADAMS      OPERATIONS                                                                                                                                                                                   
+JAMES      OPERATIONS                                                                                                                                                                                   
+FORD       OPERATIONS                                                                                                                                                                                   
+MILLER     OPERATIONS                                                                                                                                                                                   
+
+56 rows selected.
+
+SQL> SELECT E.ENAME,D.DNAME FROM EMP E,DEPT D;
+
+ENAME      DNAME                                                                                                                                                                                        
+---------- --------------                                                                                                                                                                               
+SMITH      ACCOUNTING                                                                                                                                                                                   
+ALLEN      ACCOUNTING                                                                                                                                                                                   
+WARD       ACCOUNTING                                                                                                                                                                                   
+JONES      ACCOUNTING                                                                                                                                                                                   
+MARTIN     ACCOUNTING                                                                                                                                                                                   
+BLAKE      ACCOUNTING                                                                                                                                                                                   
+CLARK      ACCOUNTING                                                                                                                                                                                   
+SCOTT      ACCOUNTING                                                                                                                                                                                   
+KING       ACCOUNTING                                                                                                                                                                                   
+TURNER     ACCOUNTING                                                                                                                                                                                   
+ADAMS      ACCOUNTING                                                                                                                                                                                   
+JAMES      ACCOUNTING                                                                                                                                                                                   
+FORD       ACCOUNTING                                                                                                                                                                                   
+MILLER     ACCOUNTING                                                                                                                                                                                   
+SMITH      RESEARCH                                                                                                                                                                                     
+ALLEN      RESEARCH                                                                                                                                                                                     
+WARD       RESEARCH                                                                                                                                                                                     
+JONES      RESEARCH                                                                                                                                                                                     
+MARTIN     RESEARCH                                                                                                                                                                                     
+BLAKE      RESEARCH                                                                                                                                                                                     
+CLARK      RESEARCH                                                                                                                                                                                     
+SCOTT      RESEARCH                                                                                                                                                                                     
+KING       RESEARCH                                                                                                                                                                                     
+TURNER     RESEARCH                                                                                                                                                                                     
+ADAMS      RESEARCH                                                                                                                                                                                     
+JAMES      RESEARCH                                                                                                                                                                                     
+FORD       RESEARCH                                                                                                                                                                                     
+MILLER     RESEARCH                                                                                                                                                                                     
+SMITH      SALES                                                                                                                                                                                        
+ALLEN      SALES                                                                                                                                                                                        
+WARD       SALES                                                                                                                                                                                        
+JONES      SALES                                                                                                                                                                                        
+MARTIN     SALES                                                                                                                                                                                        
+BLAKE      SALES                                                                                                                                                                                        
+CLARK      SALES                                                                                                                                                                                        
+SCOTT      SALES                                                                                                                                                                                        
+KING       SALES                                                                                                                                                                                        
+TURNER     SALES                                                                                                                                                                                        
+ADAMS      SALES                                                                                                                                                                                        
+JAMES      SALES                                                                                                                                                                                        
+FORD       SALES                                                                                                                                                                                        
+MILLER     SALES                                                                                                                                                                                        
+SMITH      OPERATIONS                                                                                                                                                                                   
+ALLEN      OPERATIONS                                                                                                                                                                                   
+WARD       OPERATIONS                                                                                                                                                                                   
+JONES      OPERATIONS                                                                                                                                                                                   
+MARTIN     OPERATIONS                                                                                                                                                                                   
+BLAKE      OPERATIONS                                                                                                                                                                                   
+CLARK      OPERATIONS                                                                                                                                                                                   
+SCOTT      OPERATIONS                                                                                                                                                                                   
+KING       OPERATIONS                                                                                                                                                                                   
+TURNER     OPERATIONS                                                                                                                                                                                   
+ADAMS      OPERATIONS                                                                                                                                                                                   
+JAMES      OPERATIONS                                                                                                                                                                                   
+FORD       OPERATIONS                                                                                                                                                                                   
+MILLER     OPERATIONS                                                                                                                                                                                   
+
+56 rows selected.
+
+SQL> SELECT E.ENAME,D.DNAME FROM EMP E,DEPT D WHERE E.DEPTNO=D.DEPTNO;
+
+ENAME      DNAME                                                                                                                                                                                        
+---------- --------------                                                                                                                                                                               
+SMITH      RESEARCH                                                                                                                                                                                     
+ALLEN      SALES                                                                                                                                                                                        
+WARD       SALES                                                                                                                                                                                        
+JONES      RESEARCH                                                                                                                                                                                     
+MARTIN     SALES                                                                                                                                                                                        
+BLAKE      SALES                                                                                                                                                                                        
+CLARK      ACCOUNTING                                                                                                                                                                                   
+SCOTT      RESEARCH                                                                                                                                                                                     
+KING       ACCOUNTING                                                                                                                                                                                   
+TURNER     SALES                                                                                                                                                                                        
+ADAMS      RESEARCH                                                                                                                                                                                     
+JAMES      SALES                                                                                                                                                                                        
+FORD       RESEARCH                                                                                                                                                                                     
+MILLER     ACCOUNTING                                                                                                                                                                                   
+
+14 rows selected.
+
+SQL> SELECT E.ENAME,D.DNAME FROM EMP E INNER JOIN DEPT D WHERE E.DEPTNO=D.DEPTNO;
+SELECT E.ENAME,D.DNAME FROM EMP E INNER JOIN DEPT D WHERE E.DEPTNO=D.DEPTNO
+                                                    *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+SQL> SELECT E.ENAME,D.DNAME FROM EMP E INNER JOIN DEPT D ON E.DEPTNO=D.DEPTNO;
+
+ENAME      DNAME                                                                                                                                                                                        
+---------- --------------                                                                                                                                                                               
+SMITH      RESEARCH                                                                                                                                                                                     
+ALLEN      SALES                                                                                                                                                                                        
+WARD       SALES                                                                                                                                                                                        
+JONES      RESEARCH                                                                                                                                                                                     
+MARTIN     SALES                                                                                                                                                                                        
+BLAKE      SALES                                                                                                                                                                                        
+CLARK      ACCOUNTING                                                                                                                                                                                   
+SCOTT      RESEARCH                                                                                                                                                                                     
+KING       ACCOUNTING                                                                                                                                                                                   
+TURNER     SALES                                                                                                                                                                                        
+ADAMS      RESEARCH                                                                                                                                                                                     
+JAMES      SALES                                                                                                                                                                                        
+FORD       RESEARCH                                                                                                                                                                                     
+MILLER     ACCOUNTING                                                                                                                                                                                   
+
+14 rows selected.
+
+SQL> SELECT E.EMPNO,E.SAL,D.LOC FROM EMP E,DEPT D WHERE E.ENAME='SMITH';
+
+     EMPNO        SAL LOC                                                                                                                                                                               
+---------- ---------- -------------                                                                                                                                                                     
+      7369        800 NEW YORK                                                                                                                                                                          
+      7369        800 DALLAS                                                                                                                                                                            
+      7369        800 CHICAGO                                                                                                                                                                           
+      7369        800 BOSTON                                                                                                                                                                            
+
+SQL> SELECT E.EMPNO,E.SAL,D.LOC FROM EMP E,DEPT D WHERE E.ENAME='SMITH' AND E.DEPTNO=D.DEPTNO;
+
+     EMPNO        SAL LOC                                                                                                                                                                               
+---------- ---------- -------------                                                                                                                                                                     
+      7369        800 DALLAS                                                                                                                                                                            
+
+SQL> SELECT E.EMPNO,E.SAL,D.LOC FROM EMP E INNER JOIN DEPT D ON E.ENAME='SMITH' AND E.DEPTNO=D.DEPTNO;
+
+     EMPNO        SAL LOC                                                                                                                                                                               
+---------- ---------- -------------                                                                                                                                                                     
+      7369        800 DALLAS                                                                                                                                                                            
+
+SQL> SELECT E.ENAME,E.SAL*12,E.HIREDATE,D.DNAME FROM EMP E,DEPT D
+  2  WHERE COM IS NOT NULL AND SAL>3000;
+WHERE COM IS NOT NULL AND SAL>3000
+      *
+ERROR at line 2:
+ORA-00904: "COM": invalid identifier 
+
+
+SQL> 
+SQL>  SELECT E.ENAME,E.SAL*12,E.HIREDATE,D.DNAME FROM EMP E,DEPT D
+  2  WHERE COMM IS NOT NULL AND SAL>3000;
+
+no rows selected
+
+SQL>  SELECT E.ENAME,E.SAL*12,E.HIREDATE,D.DNAME FROM EMP E,DEPT D
+  2  WHERE COMM IS NULL AND SAL>3000;
+
+ENAME        E.SAL*12 HIREDATE  DNAME                                                                                                                                                                   
+---------- ---------- --------- --------------                                                                                                                                                          
+KING            60000 17-NOV-81 ACCOUNTING                                                                                                                                                              
+KING            60000 17-NOV-81 RESEARCH                                                                                                                                                                
+KING            60000 17-NOV-81 SALES                                                                                                                                                                   
+KING            60000 17-NOV-81 OPERATIONS                                                                                                                                                              
+
+SQL> SELECT E.ENAME,E.SAL*12,E.HIREDATE,D.DNAME FROM EMP E,DEPT D
+  2   WHERE COMM IS NULL AND SAL>3000 AND E.DEPTNO=D.DEPTNO;
+
+ENAME        E.SAL*12 HIREDATE  DNAME                                                                                                                                                                   
+---------- ---------- --------- --------------                                                                                                                                                          
+KING            60000 17-NOV-81 ACCOUNTING                                                                                                                                                              
+
+SQL> SELECT E.ENAME,E.SAL*12,E.HIREDATE,D.DNAME FROM EMP E INNER JOIN DEPT D
+  2  ON COMM IS NULL AND SAL>3000 AND E.DEPTNO=D.DEPTNO;
+
+ENAME        E.SAL*12 HIREDATE  DNAME                                                                                                                                                                   
+---------- ---------- --------- --------------                                                                                                                                                          
+KING            60000 17-NOV-81 ACCOUNTING                                                                                                                                                              
+
+SQL> SELECT E.* ,D.* FROM EMP E,DEPT D
+  2  WHERE E,ENAME LIKE 'S';
+WHERE E,ENAME LIKE 'S'
+       *
+ERROR at line 2:
+ORA-00920: invalid relational operator 
+
+
+SQL> SELECT E.* ,D.* FROM EMP E,DEPT D
+  2  WHERE E.ENAME LIKE 'S';
+
+no rows selected
+
+SQL> SELECT E.* ,D.* FROM EMP E,DEPT D
+  2  WHERE E.ENAME LIKE 'S%';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO     DEPTNO DNAME          LOC                                                                                     
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ---------- -------------- -------------                                                                           
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         10 ACCOUNTING     NEW YORK                                                                                
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         20 RESEARCH       DALLAS                                                                                  
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         30 SALES          CHICAGO                                                                                 
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         40 OPERATIONS     BOSTON                                                                                  
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         10 ACCOUNTING     NEW YORK                                                                                
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         20 RESEARCH       DALLAS                                                                                  
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         30 SALES          CHICAGO                                                                                 
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         40 OPERATIONS     BOSTON                                                                                  
+
+8 rows selected.
+
+SQL>  SELECT E.* ,D.* FROM EMP E,DEPT D
+  2  WHERE E.ENAME LIKE 'S%' AND E.DEPTNO=D.DEPTNO;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO     DEPTNO DNAME          LOC                                                                                     
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ---------- -------------- -------------                                                                           
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         20 RESEARCH       DALLAS                                                                                  
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         20 RESEARCH       DALLAS                                                                                  
+
+SQL> SPOOL OFF;

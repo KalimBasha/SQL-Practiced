@@ -1,0 +1,162 @@
+SQL> SELECT 43||44 FROM EMP;
+
+43||                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+4344                                                                                                                                                                                                    
+4344                                                                                                                                                                                                    
+4344                                                                                                                                                                                                    
+4344                                                                                                                                                                                                    
+4344                                                                                                                                                                                                    
+4344                                                                                                                                                                                                    
+4344                                                                                                                                                                                                    
+4344                                                                                                                                                                                                    
+4344                                                                                                                                                                                                    
+4344                                                                                                                                                                                                    
+4344                                                                                                                                                                                                    
+4344                                                                                                                                                                                                    
+4344                                                                                                                                                                                                    
+4344                                                                                                                                                                                                    
+
+14 rows selected.
+
+SQL> SELECT 80||98 FROM DUAL;
+
+80||                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+8098                                                                                                                                                                                                    
+
+SQL> SELECT 'KALIM'||'BASHA' FROM DUAL;
+
+'KALIM'||'                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+KALIMBASHA                                                                                                                                                                                              
+
+SQL> SELECT 'SQL'||44 FROM DUAL;
+
+'SQL'                                                                                                                                                                                                   
+-----                                                                                                                                                                                                   
+SQL44                                                                                                                                                                                                   
+
+SQL> SELECT 'SQL'||2.2||'IS EASY' FROM DUAL;
+
+'SQL'||2.2||'                                                                                                                                                                                           
+-------------                                                                                                                                                                                           
+SQL2.2IS EASY                                                                                                                                                                                           
+
+SQL> SELECT ENAME||SAL FROM EMP;
+
+ENAME||SAL                                                                                                                                                                                              
+--------------------------------------------------                                                                                                                                                      
+SMITH800                                                                                                                                                                                                
+ALLEN1600                                                                                                                                                                                               
+WARD1250                                                                                                                                                                                                
+JONES2975                                                                                                                                                                                               
+MARTIN1250                                                                                                                                                                                              
+BLAKE2850                                                                                                                                                                                               
+CLARK2450                                                                                                                                                                                               
+SCOTT3000                                                                                                                                                                                               
+KING5000                                                                                                                                                                                                
+TURNER1500                                                                                                                                                                                              
+ADAMS1100                                                                                                                                                                                               
+JAMES950                                                                                                                                                                                                
+FORD3000                                                                                                                                                                                                
+MILLER1300                                                                                                                                                                                              
+
+14 rows selected.
+
+SQL> SELECT 'KALIM' FROM DUAL;
+
+'KALI                                                                                                                                                                                                   
+-----                                                                                                                                                                                                   
+KALIM                                                                                                                                                                                                   
+
+SQL> SELECT '09-FEB-03' FROM DUAL;
+
+'09-FEB-0                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+09-FEB-03                                                                                                                                                                                               
+
+SQL> SELECT ENAME||'IS WORKING AS A'||JOB||'IN DEPT'||DEPTNO FROM EMP;
+
+ENAME||'ISWORKINGASA'||JOB||'INDEPT'||DEPTNO                                                                                                                                                            
+---------------------------------------------------------------------------------                                                                                                                       
+SMITHIS WORKING AS ACLERKIN DEPT20                                                                                                                                                                      
+ALLENIS WORKING AS ASALESMANIN DEPT30                                                                                                                                                                   
+WARDIS WORKING AS ASALESMANIN DEPT30                                                                                                                                                                    
+JONESIS WORKING AS AMANAGERIN DEPT20                                                                                                                                                                    
+MARTINIS WORKING AS ASALESMANIN DEPT30                                                                                                                                                                  
+BLAKEIS WORKING AS AMANAGERIN DEPT30                                                                                                                                                                    
+CLARKIS WORKING AS AMANAGERIN DEPT10                                                                                                                                                                    
+SCOTTIS WORKING AS AANALYSTIN DEPT20                                                                                                                                                                    
+KINGIS WORKING AS APRESIDENTIN DEPT10                                                                                                                                                                   
+TURNERIS WORKING AS ASALESMANIN DEPT30                                                                                                                                                                  
+ADAMSIS WORKING AS ACLERKIN DEPT20                                                                                                                                                                      
+JAMESIS WORKING AS ACLERKIN DEPT30                                                                                                                                                                      
+FORDIS WORKING AS AANALYSTIN DEPT20                                                                                                                                                                     
+MILLERIS WORKING AS ACLERKIN DEPT10                                                                                                                                                                     
+
+14 rows selected.
+
+SQL> SELECT ENAME||' IS WORKING AS A '||JOB||' AND EARNING SALARY MORE THAN '||SAL|| ' AND WORKING IN DEPT '||DEPTNO FROM EMP;
+
+ENAME||'ISWORKINGASA'||JOB||'ANDEARNINGSALARYMORETHAN'||SAL||'ANDWORKINGINDEPT'||DEPTNO                                                                                                                 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------                                 
+SMITH IS WORKING AS A CLERK AND EARNING SALARY MORE THAN 800 AND WORKING IN DEPT 20                                                                                                                     
+ALLEN IS WORKING AS A SALESMAN AND EARNING SALARY MORE THAN 1600 AND WORKING IN DEPT 30                                                                                                                 
+WARD IS WORKING AS A SALESMAN AND EARNING SALARY MORE THAN 1250 AND WORKING IN DEPT 30                                                                                                                  
+JONES IS WORKING AS A MANAGER AND EARNING SALARY MORE THAN 2975 AND WORKING IN DEPT 20                                                                                                                  
+MARTIN IS WORKING AS A SALESMAN AND EARNING SALARY MORE THAN 1250 AND WORKING IN DEPT 30                                                                                                                
+BLAKE IS WORKING AS A MANAGER AND EARNING SALARY MORE THAN 2850 AND WORKING IN DEPT 30                                                                                                                  
+CLARK IS WORKING AS A MANAGER AND EARNING SALARY MORE THAN 2450 AND WORKING IN DEPT 10                                                                                                                  
+SCOTT IS WORKING AS A ANALYST AND EARNING SALARY MORE THAN 3000 AND WORKING IN DEPT 20                                                                                                                  
+KING IS WORKING AS A PRESIDENT AND EARNING SALARY MORE THAN 5000 AND WORKING IN DEPT 10                                                                                                                 
+TURNER IS WORKING AS A SALESMAN AND EARNING SALARY MORE THAN 1500 AND WORKING IN DEPT 30                                                                                                                
+ADAMS IS WORKING AS A CLERK AND EARNING SALARY MORE THAN 1100 AND WORKING IN DEPT 20                                                                                                                    
+JAMES IS WORKING AS A CLERK AND EARNING SALARY MORE THAN 950 AND WORKING IN DEPT 30                                                                                                                     
+FORD IS WORKING AS A ANALYST AND EARNING SALARY MORE THAN 3000 AND WORKING IN DEPT 20                                                                                                                   
+MILLER IS WORKING AS A CLERK AND EARNING SALARY MORE THAN 1300 AND WORKING IN DEPT 10                                                                                                                   
+
+14 rows selected.
+
+SQL> SELECT ENAME||' IS AN EMPLOYEE WHO IS HAVING A ID OF '||EMPNO||' AND EARNING COMMISSION EXACTLY '||' AND JOINED ON '|| HIRE DATE FROM EMP WHERE DEPTNO=30;
+SELECT ENAME||' IS AN EMPLOYEE WHO IS HAVING A ID OF '||EMPNO||' AND EARNING COMMISSION EXACTLY '||' AND JOINED ON '|| HIRE DATE FROM EMP WHERE DEPTNO=30
+                                                                                                                            *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL>  SELECT ENAME||' IS AN EMPLOYEE WHO IS HAVING A ID OF '||EMPNO||' AND EARNING COMMISSION EXACTLY'||COMM||' AND JOINED ON '|| HIRE DATE FROM EMP WHERE DEPT NO=30;
+ SELECT ENAME||' IS AN EMPLOYEE WHO IS HAVING A ID OF '||EMPNO||' AND EARNING COMMISSION EXACTLY'||COMM||' AND JOINED ON '|| HIRE DATE FROM EMP WHERE DEPT NO=30
+                                                                                                                                  *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> SELECT ENAME||' IS AN EMPLOYEE WHO IS HAVING A ID OF '||EMPNO||' AND EARNING COMMISSION EXACTLY'||COMM||' AND JOINED ON '|| HIRE DATE FROM EMP;
+SELECT ENAME||' IS AN EMPLOYEE WHO IS HAVING A ID OF '||EMPNO||' AND EARNING COMMISSION EXACTLY'||COMM||' AND JOINED ON '|| HIRE DATE FROM EMP
+                                                                                                                                 *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL>  SELECT ENAME||' IS AN EMPLOYEE WHO IS HAVING A ID OF '||EMPNO||' AND EARNING COMMISSION EXACTLY'||COMM||' AND JOINED ON '|| HIREDATE FROM EMP WHERE DEPT NO=30;
+ SELECT ENAME||' IS AN EMPLOYEE WHO IS HAVING A ID OF '||EMPNO||' AND EARNING COMMISSION EXACTLY'||COMM||' AND JOINED ON '|| HIREDATE FROM EMP WHERE DEPT NO=30
+                                                                                                                                                          *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+SQL>  SELECT ENAME||' IS AN EMPLOYEE WHO IS HAVING A ID OF '||EMPNO||' AND EARNING COMMISSION EXACTLY'||COMM||' AND JOINED ON '|| HIREDATE FROM EMP WHERE DEPTNO=30;
+
+ENAME||'ISANEMPLOYEEWHOISHAVINGAIDOF'||EMPNO||'ANDEARNINGCOMMISSIONEXACTLY'||COMM||'ANDJOINEDON'||HIREDATE                                                                                              
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------                 
+ALLEN IS AN EMPLOYEE WHO IS HAVING A ID OF 7499 AND EARNING COMMISSION EXACTLY300 AND JOINED ON 20-FEB-81                                                                                               
+WARD IS AN EMPLOYEE WHO IS HAVING A ID OF 7521 AND EARNING COMMISSION EXACTLY500 AND JOINED ON 22-FEB-81                                                                                                
+MARTIN IS AN EMPLOYEE WHO IS HAVING A ID OF 7654 AND EARNING COMMISSION EXACTLY1400 AND JOINED ON 28-SEP-81                                                                                             
+BLAKE IS AN EMPLOYEE WHO IS HAVING A ID OF 7698 AND EARNING COMMISSION EXACTLY AND JOINED ON 01-MAY-81                                                                                                  
+TURNER IS AN EMPLOYEE WHO IS HAVING A ID OF 7844 AND EARNING COMMISSION EXACTLY0 AND JOINED ON 08-SEP-81                                                                                                
+JAMES IS AN EMPLOYEE WHO IS HAVING A ID OF 7900 AND EARNING COMMISSION EXACTLY AND JOINED ON 03-DEC-81                                                                                                  
+
+6 rows selected.
+
+SQL> SPOOL OFF;

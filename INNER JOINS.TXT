@@ -1,0 +1,56 @@
+SQL> SELECT * FROM DEPT WHERE DEPTNO IN
+  2  (SELECT DEPTNO FROM EMP WHERE MGR IS NULL AND SAL>3000 AND
+  3  
+SQL> SELECT * FROM DEPT WHERE LOC='NEW YORK' AND DEPTNO IN
+  2   (SELECT DEPTNO FROM EMP WHERE MGR IS NULL AND SAL>3000 );
+
+    DEPTNO DNAME          LOC                                                                                                                                                                           
+---------- -------------- -------------                                                                                                                                                                 
+        10 ACCOUNTING     NEW YORK                                                                                                                                                                      
+
+SQL> SELECT D.* FROM EMP E INNER JOIN DEPT D
+  2  ON E.MGR IS NULL AND E.SAL>3000 AND D.LOC='NEW YORK';
+
+    DEPTNO DNAME          LOC                                                                                                                                                                           
+---------- -------------- -------------                                                                                                                                                                 
+        10 ACCOUNTING     NEW YORK                                                                                                                                                                      
+
+SQL> SELECT D.* FROM EMP E ,DEPT D
+  2  WHERE E.MGR IS NULL AND E.SAL>3000 AND D.LOC='NEW YORK';
+
+    DEPTNO DNAME          LOC                                                                                                                                                                           
+---------- -------------- -------------                                                                                                                                                                 
+        10 ACCOUNTING     NEW YORK                                                                                                                                                                      
+
+SQL> SELECT C.CNAME,C.AGE,C.ADDRESS,P.PNAME FROM CUSTOMER C INNER JOIN PRODUCT P
+  2  ON P.PRICE BETWEEN 00 AND 1000 AND TO_CHAR(P.MF_DATE,'YYYY')='2023' AND TO_CHAR(P.EXP_DATE,'YYYY')='2025' AND E.DEPTNO=D.DEPTNO;
+SELECT C.CNAME,C.AGE,C.ADDRESS,P.PNAME FROM CUSTOMER C INNER JOIN PRODUCT P
+                                                                  *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL>  SELECT D.* FROM EMP E ,DEPT D
+  2   WHERE E.MGR IS NULL AND E.SAL>3000 AND D.LOC='NEW YORK' AND E.DEPTNO=D.DEPTNO;
+
+    DEPTNO DNAME          LOC                                                                                                                                                                           
+---------- -------------- -------------                                                                                                                                                                 
+        10 ACCOUNTING     NEW YORK                                                                                                                                                                      
+
+SQL> SELECT W.FIRST_NAME,W.LAST_NAME,O.DEPT FROM WORKERS W,ORGANISATION O
+  2  ON W.AGE>40 AND W.DAILY_WAGES=300 AND W.TRAVEL_INKMS>25 AND W.ID=O.ID;
+ON W.AGE>40 AND W.DAILY_WAGES=300 AND W.TRAVEL_INKMS>25 AND W.ID=O.ID
+*
+ERROR at line 2:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> SELECT W.FIRST_NAME,W.LAST_NAME,O.DEPT FROM WORKERS W INNER JOIN ORGANISATION O
+  2  ON W.AGE>40 AND W.DAILY_WAGES=300 AND W.TRAVEL_INKMS>25 AND W.ID=O.ID;
+SELECT W.FIRST_NAME,W.LAST_NAME,O.DEPT FROM WORKERS W INNER JOIN ORGANISATION O
+                                                                 *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> SPOOL OFF;

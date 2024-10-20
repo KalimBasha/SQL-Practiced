@@ -1,0 +1,107 @@
+SQL> SELECT CURRENT_DATE FROM DUAL;
+
+CURRENT_D                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+18-APR-24                                                                                                                                                                                               
+
+SQL> SELECT CURRENT_DATE;
+SELECT CURRENT_DATE
+                  *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> SELECT CURRENT_DATE FROM EMP;
+
+CURRENT_D                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+18-APR-24                                                                                                                                                                                               
+18-APR-24                                                                                                                                                                                               
+18-APR-24                                                                                                                                                                                               
+18-APR-24                                                                                                                                                                                               
+18-APR-24                                                                                                                                                                                               
+18-APR-24                                                                                                                                                                                               
+18-APR-24                                                                                                                                                                                               
+18-APR-24                                                                                                                                                                                               
+18-APR-24                                                                                                                                                                                               
+18-APR-24                                                                                                                                                                                               
+18-APR-24                                                                                                                                                                                               
+18-APR-24                                                                                                                                                                                               
+18-APR-24                                                                                                                                                                                               
+18-APR-24                                                                                                                                                                                               
+
+14 rows selected.
+
+SQL> SELECT SYSDATE FROM DUAL;
+
+SYSDATE                                                                                                                                                                                                 
+---------                                                                                                                                                                                               
+18-APR-24                                                                                                                                                                                               
+
+SQL> SELECT SESSIONTIMEZONE FROM DUAL;
+
+SESSIONTIMEZONE                                                                                                                                                                                         
+---------------------------------------------------------------------------                                                                                                                             
++05:30                                                                                                                                                                                                  
+
+SQL> SELECT ADD_MONTHS('18-APR-2024',10) FROM DUAL;
+
+ADD_MONTH                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+18-FEB-25                                                                                                                                                                                               
+
+SQL> SELECT ADD_MONTHS('09-FEB-03',240) FROM DUAL;
+
+ADD_MONTH                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+09-FEB-23                                                                                                                                                                                               
+
+SQL>  SELECT ADD_MONTHS('09-FEB-03',763) FROM DUAL;
+
+ADD_MONTH                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+09-SEP-66                                                                                                                                                                                               
+
+SQL> SELECT MONTHS_BETWEEN('09-FEB-03','18-APR-24') FROM DUAL;
+
+MONTHS_BETWEEN('09-FEB-03','18-APR-24')                                                                                                                                                                 
+---------------------------------------                                                                                                                                                                 
+                             -254.29032                                                                                                                                                                 
+
+SQL> SELECT MONTHS_BETWEEN('18-APR-24','09-FEB-03') FROM DUAL;
+
+MONTHS_BETWEEN('18-APR-24','09-FEB-03')                                                                                                                                                                 
+---------------------------------------                                                                                                                                                                 
+                             254.290323                                                                                                                                                                 
+
+SQL> SELECT LASTDAY('09-FEB-03') FROM DUAL;
+SELECT LASTDAY('09-FEB-03') FROM DUAL
+       *
+ERROR at line 1:
+ORA-00904: "LASTDAY": invalid identifier 
+
+
+SQL> SELECT LAST_DAY('09-FEB-03') FROM DUAL;
+
+LAST_DAY(                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+28-FEB-03                                                                                                                                                                                               
+
+SQL> SELECT NEXT_DAY('02-MAY-24','THURSDAY) FROM DUAL;
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> SELECT NEXT_DAY('02-MAY-24','THURSDAY') FROM DUAL;
+
+NEXT_DAY(                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+09-MAY-24                                                                                                                                                                                               
+
+SQL> SELECT CURRENT_TIMESTAMP FROM DUAL;
+
+CURRENT_TIMESTAMP                                                                                                                                                                                       
+---------------------------------------------------------------------------                                                                                                                             
+18-APR-24 10.43.14.989000 AM +05:30                                                                                                                                                                     
+
+SQL> SPOOL OFF;

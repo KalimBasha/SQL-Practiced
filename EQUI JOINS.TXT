@@ -1,0 +1,233 @@
+SQL> SELECT E.ENAME,D.DNAME FROM EMP E,DEPT D
+  2  WHERE E.DEPTNO=D.DEPTNO;
+
+ENAME      DNAME                                                                                                                                                                                        
+---------- --------------                                                                                                                                                                               
+SMITH      RESEARCH                                                                                                                                                                                     
+ALLEN      SALES                                                                                                                                                                                        
+WARD       SALES                                                                                                                                                                                        
+JONES      RESEARCH                                                                                                                                                                                     
+MARTIN     SALES                                                                                                                                                                                        
+BLAKE      SALES                                                                                                                                                                                        
+CLARK      ACCOUNTING                                                                                                                                                                                   
+SCOTT      RESEARCH                                                                                                                                                                                     
+KING       ACCOUNTING                                                                                                                                                                                   
+TURNER     SALES                                                                                                                                                                                        
+ADAMS      RESEARCH                                                                                                                                                                                     
+JAMES      SALES                                                                                                                                                                                        
+FORD       RESEARCH                                                                                                                                                                                     
+MILLER     ACCOUNTING                                                                                                                                                                                   
+
+14 rows selected.
+
+SQL> SELECT E.SAL*12,E.COMM/2,D.* FROM EMP E,DEPT D
+  2  WHERE D.LOC='NEW YORK' AND E.DEPTNO=D.DEPTNO;
+
+  E.SAL*12   E.COMM/2     DEPTNO DNAME          LOC                                                                                                                                                     
+---------- ---------- ---------- -------------- -------------                                                                                                                                           
+     29400                    10 ACCOUNTING     NEW YORK                                                                                                                                                
+     60000                    10 ACCOUNTING     NEW YORK                                                                                                                                                
+     15600                    10 ACCOUNTING     NEW YORK                                                                                                                                                
+
+SQL> SELECT * FROM DEPT;
+
+    DEPTNO DNAME          LOC                                                                                                                                                                           
+---------- -------------- -------------                                                                                                                                                                 
+        10 ACCOUNTING     NEW YORK                                                                                                                                                                      
+        20 RESEARCH       DALLAS                                                                                                                                                                        
+        30 SALES          CHICAGO                                                                                                                                                                       
+        40 OPERATIONS     BOSTON                                                                                                                                                                        
+
+SQL> SELECT E.EMPNO,E.SAL,E.ENAME,E.HIREDATE,D.DNAME,D.LOC FROM EMP E,DEPT D
+  2  WHERE E.DEPTNO=D.DEPTNO;
+
+     EMPNO        SAL ENAME      HIREDATE  DNAME          LOC                                                                                                                                           
+---------- ---------- ---------- --------- -------------- -------------                                                                                                                                 
+      7369        800 SMITH      17-DEC-80 RESEARCH       DALLAS                                                                                                                                        
+      7499       1600 ALLEN      20-FEB-81 SALES          CHICAGO                                                                                                                                       
+      7521       1250 WARD       22-FEB-81 SALES          CHICAGO                                                                                                                                       
+      7566       2975 JONES      02-APR-81 RESEARCH       DALLAS                                                                                                                                        
+      7654       1250 MARTIN     28-SEP-81 SALES          CHICAGO                                                                                                                                       
+      7698       2850 BLAKE      01-MAY-81 SALES          CHICAGO                                                                                                                                       
+      7782       2450 CLARK      09-JUN-81 ACCOUNTING     NEW YORK                                                                                                                                      
+      7788       3000 SCOTT      19-APR-87 RESEARCH       DALLAS                                                                                                                                        
+      7839       5000 KING       17-NOV-81 ACCOUNTING     NEW YORK                                                                                                                                      
+      7844       1500 TURNER     08-SEP-81 SALES          CHICAGO                                                                                                                                       
+      7876       1100 ADAMS      23-MAY-87 RESEARCH       DALLAS                                                                                                                                        
+      7900        950 JAMES      03-DEC-81 SALES          CHICAGO                                                                                                                                       
+      7902       3000 FORD       03-DEC-81 RESEARCH       DALLAS                                                                                                                                        
+      7934       1300 MILLER     23-JAN-82 ACCOUNTING     NEW YORK                                                                                                                                      
+
+14 rows selected.
+
+SQL> SELECT E.EMPNO,E.SAL,E.ENAME,E.HIREDATE,D.DNAME,D.LOC FROM EMP E,DEPT D;
+
+     EMPNO        SAL ENAME      HIREDATE  DNAME          LOC                                                                                                                                           
+---------- ---------- ---------- --------- -------------- -------------                                                                                                                                 
+      7369        800 SMITH      17-DEC-80 ACCOUNTING     NEW YORK                                                                                                                                      
+      7499       1600 ALLEN      20-FEB-81 ACCOUNTING     NEW YORK                                                                                                                                      
+      7521       1250 WARD       22-FEB-81 ACCOUNTING     NEW YORK                                                                                                                                      
+      7566       2975 JONES      02-APR-81 ACCOUNTING     NEW YORK                                                                                                                                      
+      7654       1250 MARTIN     28-SEP-81 ACCOUNTING     NEW YORK                                                                                                                                      
+      7698       2850 BLAKE      01-MAY-81 ACCOUNTING     NEW YORK                                                                                                                                      
+      7782       2450 CLARK      09-JUN-81 ACCOUNTING     NEW YORK                                                                                                                                      
+      7788       3000 SCOTT      19-APR-87 ACCOUNTING     NEW YORK                                                                                                                                      
+      7839       5000 KING       17-NOV-81 ACCOUNTING     NEW YORK                                                                                                                                      
+      7844       1500 TURNER     08-SEP-81 ACCOUNTING     NEW YORK                                                                                                                                      
+      7876       1100 ADAMS      23-MAY-87 ACCOUNTING     NEW YORK                                                                                                                                      
+      7900        950 JAMES      03-DEC-81 ACCOUNTING     NEW YORK                                                                                                                                      
+      7902       3000 FORD       03-DEC-81 ACCOUNTING     NEW YORK                                                                                                                                      
+      7934       1300 MILLER     23-JAN-82 ACCOUNTING     NEW YORK                                                                                                                                      
+      7369        800 SMITH      17-DEC-80 RESEARCH       DALLAS                                                                                                                                        
+      7499       1600 ALLEN      20-FEB-81 RESEARCH       DALLAS                                                                                                                                        
+      7521       1250 WARD       22-FEB-81 RESEARCH       DALLAS                                                                                                                                        
+      7566       2975 JONES      02-APR-81 RESEARCH       DALLAS                                                                                                                                        
+      7654       1250 MARTIN     28-SEP-81 RESEARCH       DALLAS                                                                                                                                        
+      7698       2850 BLAKE      01-MAY-81 RESEARCH       DALLAS                                                                                                                                        
+      7782       2450 CLARK      09-JUN-81 RESEARCH       DALLAS                                                                                                                                        
+      7788       3000 SCOTT      19-APR-87 RESEARCH       DALLAS                                                                                                                                        
+      7839       5000 KING       17-NOV-81 RESEARCH       DALLAS                                                                                                                                        
+      7844       1500 TURNER     08-SEP-81 RESEARCH       DALLAS                                                                                                                                        
+      7876       1100 ADAMS      23-MAY-87 RESEARCH       DALLAS                                                                                                                                        
+      7900        950 JAMES      03-DEC-81 RESEARCH       DALLAS                                                                                                                                        
+      7902       3000 FORD       03-DEC-81 RESEARCH       DALLAS                                                                                                                                        
+      7934       1300 MILLER     23-JAN-82 RESEARCH       DALLAS                                                                                                                                        
+      7369        800 SMITH      17-DEC-80 SALES          CHICAGO                                                                                                                                       
+      7499       1600 ALLEN      20-FEB-81 SALES          CHICAGO                                                                                                                                       
+      7521       1250 WARD       22-FEB-81 SALES          CHICAGO                                                                                                                                       
+      7566       2975 JONES      02-APR-81 SALES          CHICAGO                                                                                                                                       
+      7654       1250 MARTIN     28-SEP-81 SALES          CHICAGO                                                                                                                                       
+      7698       2850 BLAKE      01-MAY-81 SALES          CHICAGO                                                                                                                                       
+      7782       2450 CLARK      09-JUN-81 SALES          CHICAGO                                                                                                                                       
+      7788       3000 SCOTT      19-APR-87 SALES          CHICAGO                                                                                                                                       
+      7839       5000 KING       17-NOV-81 SALES          CHICAGO                                                                                                                                       
+      7844       1500 TURNER     08-SEP-81 SALES          CHICAGO                                                                                                                                       
+      7876       1100 ADAMS      23-MAY-87 SALES          CHICAGO                                                                                                                                       
+      7900        950 JAMES      03-DEC-81 SALES          CHICAGO                                                                                                                                       
+      7902       3000 FORD       03-DEC-81 SALES          CHICAGO                                                                                                                                       
+      7934       1300 MILLER     23-JAN-82 SALES          CHICAGO                                                                                                                                       
+      7369        800 SMITH      17-DEC-80 OPERATIONS     BOSTON                                                                                                                                        
+      7499       1600 ALLEN      20-FEB-81 OPERATIONS     BOSTON                                                                                                                                        
+      7521       1250 WARD       22-FEB-81 OPERATIONS     BOSTON                                                                                                                                        
+      7566       2975 JONES      02-APR-81 OPERATIONS     BOSTON                                                                                                                                        
+      7654       1250 MARTIN     28-SEP-81 OPERATIONS     BOSTON                                                                                                                                        
+      7698       2850 BLAKE      01-MAY-81 OPERATIONS     BOSTON                                                                                                                                        
+      7782       2450 CLARK      09-JUN-81 OPERATIONS     BOSTON                                                                                                                                        
+      7788       3000 SCOTT      19-APR-87 OPERATIONS     BOSTON                                                                                                                                        
+      7839       5000 KING       17-NOV-81 OPERATIONS     BOSTON                                                                                                                                        
+      7844       1500 TURNER     08-SEP-81 OPERATIONS     BOSTON                                                                                                                                        
+      7876       1100 ADAMS      23-MAY-87 OPERATIONS     BOSTON                                                                                                                                        
+      7900        950 JAMES      03-DEC-81 OPERATIONS     BOSTON                                                                                                                                        
+      7902       3000 FORD       03-DEC-81 OPERATIONS     BOSTON                                                                                                                                        
+      7934       1300 MILLER     23-JAN-82 OPERATIONS     BOSTON                                                                                                                                        
+
+56 rows selected.
+
+SQL> SELECT E.ENAME,E.JOB,D.* FROM EMP E,DEPT D
+  2  WHERE SUBSTR(E.ENAME,1)='M' AND TO_CHAR(HIREDATE,'MON')='AUG' AND E.EMPNO IN(7369,7654);
+
+no rows selected
+
+SQL> SELECT E.ENAME,E.JOB,D.* FROM EMP E,DEPT D
+  2  WHERE SUBSTR(E.ENAME,1)='M' AND TO_CHAR(HIREDATE,'MON')='AUG' AND E.EMPNO IN(7369,7654) AND E.DEPTNO=D.DEPTNO;
+
+no rows selected
+
+SQL> 
+SQL>  SELECT E.ENAME,E.JOB,D.* FROM EMP E,DEPT D
+  2   WHERE SUBSTR(E.ENAME,1)='M' AND TO_CHAR(HIREDATE,'MON')='SEP'AND E.EMPNO IN(7369,7654);
+
+no rows selected
+
+SQL> SELECT E.ENAME,E.JOB,D.* FROM EMP E,DEPT D
+  2   WHERE SUBSTR(E.ENAME,1,1)='M' AND TO_CHAR(HIREDATE,'MON')='SEP'AND E.EMPNO IN(7369,7654);
+
+ENAME      JOB           DEPTNO DNAME          LOC                                                                                                                                                      
+---------- --------- ---------- -------------- -------------                                                                                                                                            
+MARTIN     SALESMAN          10 ACCOUNTING     NEW YORK                                                                                                                                                 
+MARTIN     SALESMAN          20 RESEARCH       DALLAS                                                                                                                                                   
+MARTIN     SALESMAN          30 SALES          CHICAGO                                                                                                                                                  
+MARTIN     SALESMAN          40 OPERATIONS     BOSTON                                                                                                                                                   
+
+SQL>  SELECT E.ENAME,E.JOB,D.* FROM EMP E,DEPT D
+  2    WHERE SUBSTR(E.ENAME,1,1)='M' AND TO_CHAR(HIREDATE,'MON')='SEP'AND E.EMPNO IN(7369,7654) E.DEPTNO=D.DEPTNO;
+  WHERE SUBSTR(E.ENAME,1,1)='M' AND TO_CHAR(HIREDATE,'MON')='SEP'AND E.EMPNO IN(7369,7654) E.DEPTNO=D.DEPTNO
+                                                                                           *
+ERROR at line 2:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> SELECT E.ENAME,E.JOB,D.* FROM EMP E,DEPT D
+  2   WHERE SUBSTR(E.ENAME,1,1)='M' AND TO_CHAR(HIREDATE,'MON')='SEP'AND E.EMPNO IN(7369,7654) AND E
+  3  
+SQL> SELECT E.ENAME,E.JOB,D.* FROM EMP E,DEPT D
+  2   WHERE SUBSTR(E.ENAME,1,1)='M' AND TO_CHAR(HIREDATE,'MON')='SEP'AND E.EMPNO IN(7369,7654) AND
+  3  E.DEPTNO=D.DEPTNO;
+
+ENAME      JOB           DEPTNO DNAME          LOC                                                                                                                                                      
+---------- --------- ---------- -------------- -------------                                                                                                                                            
+MARTIN     SALESMAN          30 SALES          CHICAGO                                                                                                                                                  
+
+SQL> SELECT E.* ,D.LOC FROM EMP E,DEPT D
+  2  WHERE SUBSTR(E.ENAME,1,-1)='A';
+
+no rows selected
+
+SQL> SELECT ENAME FROM EMP WHERE SUBSTR(ENAME,1,-1);
+SELECT ENAME FROM EMP WHERE SUBSTR(ENAME,1,-1)
+                                             *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+SQL> SELECT ENAME FROM EMP WHERE SUBSTR(ENAME,1,-1)='A';
+
+no rows selected
+
+SQL>  SELECT E.* ,D.LOC FROM EMP E,DEPT D
+  2   WHERE INSTR(E.JOB,'A',1)>1 AND MOD(E.SAL,2)=0 AND E.DEPTNO=D.DEPTNO;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO LOC                                                                                                               
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- -------------                                                                                                     
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30 CHICAGO                                                                                                           
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30 CHICAGO                                                                                                           
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30 CHICAGO                                                                                                           
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30 CHICAGO                                                                                                           
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10 NEW YORK                                                                                                          
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30 CHICAGO                                                                                                           
+
+6 rows selected.
+
+SQL> SELECT E.* ,D.LOC FROM EMP E,DEPT D
+  2   WHERE INSTR(E.JOB,'A',1)>1 AND MOD(E.SAL,2)=0;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO LOC                                                                                                               
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- -------------                                                                                                     
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30 NEW YORK                                                                                                          
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30 DALLAS                                                                                                            
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30 CHICAGO                                                                                                           
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30 BOSTON                                                                                                            
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30 NEW YORK                                                                                                          
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30 DALLAS                                                                                                            
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30 CHICAGO                                                                                                           
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30 BOSTON                                                                                                            
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30 NEW YORK                                                                                                          
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30 DALLAS                                                                                                            
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30 CHICAGO                                                                                                           
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30 BOSTON                                                                                                            
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30 NEW YORK                                                                                                          
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30 DALLAS                                                                                                            
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30 CHICAGO                                                                                                           
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30 BOSTON                                                                                                            
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10 NEW YORK                                                                                                          
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10 DALLAS                                                                                                            
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10 CHICAGO                                                                                                           
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10 BOSTON                                                                                                            
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30 NEW YORK                                                                                                          
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30 DALLAS                                                                                                            
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30 CHICAGO                                                                                                           
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30 BOSTON                                                                                                            
+
+24 rows selected.
+
+SQL> SPOOL OFF;
